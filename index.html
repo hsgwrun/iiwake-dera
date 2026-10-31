@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>言い訳寺 ｜ 足利の大仏が、あなたの言い訳をお聴きになる</title>
+  <meta name="description" content="言い訳を告白すると、足利の大仏が優しくも辛口に裁いてくれるアプリ。2分だけの修行タイマー、木魚、功徳ポイント付き。" />
+  <meta property="og:title" content="言い訳寺" />
+  <meta property="og:description" content="言い訳を告白すると、大仏が裁きます。やる気は要求されません。2分だけです。" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2316130e'/%3E%3Ccircle cx='32' cy='26' r='10' fill='none' stroke='%23c9a45c' stroke-width='2.5'/%3E%3Cpath d='M12 48c4-12 12-18 20-18s16 6 20 18z' fill='%23c9a45c'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="halo-bg" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-kanji" aria-hidden="true">言</span>
+      <div>
+        <h1 class="brand-title">言い訳寺</h1>
+        <p class="brand-sub">あしかが大仏・言い訳受理課</p>
+      </div>
+    </div>
+    <div class="karma-chip" role="status" aria-live="polite" data-testid="karma-chip">
+      <span class="karma-label">功徳</span>
+      <span class="karma-value" id="karmaValue" data-testid="text-karma">0</span>
+      <span class="karma-rank" id="karmaRank" data-testid="text-rank">童子</span>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="buddha-stage" aria-label="大仏様">
+      <svg class="buddha" viewBox="0 0 320 300" role="img" aria-label="瞑想する大仏のイラスト" data-testid="img-buddha">
+        <defs>
+          <radialGradient id="haloGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#c9a45c" stop-opacity="0.28"/>
+            <stop offset="70%" stop-color="#c9a45c" stop-opacity="0.07"/>
+            <stop offset="100%" stop-color="#c9a45c" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#3a3226"/>
+            <stop offset="100%" stop-color="#241f16"/>
+          </linearGradient>
+        </defs>
+        <circle class="buddha-halo" cx="160" cy="128" r="118" fill="url(#haloGrad)"/>
+        <circle class="buddha-halo-ring" cx="160" cy="128" r="112" fill="none" stroke="#c9a45c" stroke-opacity="0.35" stroke-width="1.5"/>
+        <!-- 髪（螺髪） -->
+        <circle cx="160" cy="92" r="46" fill="url(#bodyGrad)"/>
+        <g fill="#c9a45c" fill-opacity="0.5">
+          <circle cx="126" cy="98" r="3"/><circle cx="140" cy="76" r="3"/><circle cx="160" cy="68" r="3"/>
+          <circle cx="180" cy="76" r="3"/><circle cx="194" cy="98" r="3"/><circle cx="122" cy="118" r="3"/>
+          <circle cx="198" cy="118" r="3"/><circle cx="132" cy="64" r="2.5"/><circle cx="188" cy="64" r="2.5"/>
+          <circle cx="160" cy="54" r="2.5"/>
+        </g>
+        <!-- 顔 -->
+        <circle cx="160" cy="112" r="34" fill="#e8dcc4"/>
+        <!-- 白毫（眉間のうずまき） -->
+        <path d="M160 98 a3.5 3.5 0 1 1 -0.1 0 M160 94 v3" stroke="#c9a45c" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <!-- 目 -->
+        <path d="M142 110 q5 4 10 0 M168 110 q5 4 10 0" stroke="#241f16" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <!-- 鼻・口 -->
+        <path d="M160 108 v10 M160 124 q4 3 8 0 M160 124 q-4 3 -8 0" stroke="#241f16" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <!-- 耳 -->
+        <ellipse cx="124" cy="112" rx="6" ry="12" fill="#e8dcc4"/>
+        <ellipse cx="196" cy="112" rx="6" ry="12" fill="#e8dcc4"/>
+        <!-- 体 -->
+        <path d="M160 146 C 205 146 236 178 248 232 C 252 252 240 262 224 262 L 96 262 C 80 262 68 252 72 232 C 84 178 115 146 160 146 Z" fill="url(#bodyGrad)"/>
+        <!-- 衣の金色の縁 -->
+        <path d="M84 214 C 100 190 128 176 160 176 C 192 176 220 190 236 214" fill="none" stroke="#c9a45c" stroke-opacity="0.55" stroke-width="2"/>
+        <!-- 手（禅定印） -->
+        <ellipse cx="160" cy="212" rx="34" ry="20" fill="#e8dcc4"/>
+        <path d="M160 206 a10 6 0 1 1 -0.1 0" fill="none" stroke="#c9a45c" stroke-width="2"/>
+      </svg>
+      <p class="buddha-caption" id="buddhaCaption">「…施主よ。遠慮せず、その言い訳を聞かせてもらおうか」</p>
+    </section>
+
+    <section class="confession card" aria-labelledby="confessionTitle">
+      <h2 class="card-title" id="confessionTitle">告白の間</h2>
+      <p class="card-note">ここに書いたことは、山を越えて誰にも届きません。仏だけが知っています。</p>
+      <label class="sr-only" for="excuseInput">言い訳を書く</label>
+      <textarea id="excuseInput" data-testid="input-excuse" rows="4" maxlength="300"
+        placeholder="例）レポートは明日から本気を出すつもりだった。しかし昨夜、猫が膝に来たので断念した。"></textarea>
+      <div class="confession-actions">
+        <button class="btn btn-primary" id="confessBtn" data-testid="button-confess">告白する</button>
+        <button class="btn btn-ghost" id="surpriseBtn" data-testid="button-random">私は言い訳が思いつかない</button>
+      </div>
+    </section>
+
+    <section class="verdict card" id="verdictCard" hidden aria-labelledby="verdictTitle" data-testid="card-verdict">
+      <h2 class="card-title" id="verdictTitle">大仏の裁定</h2>
+      <div class="verdict-art" aria-hidden="true">南無言い訳菩萨</div>
+      <p class="verdict-score" id="verdictScore" data-testid="text-score"></p>
+      <p class="verdict-comment" id="verdictComment" data-testid="text-comment"></p>
+      <p class="verdict-first-step"><span class="first-step-label">仏の一手・最初の二分間</span><span id="verdictStep" data-testid="text-firststep"></span></p>
+      <div class="verdict-actions">
+        <button class="btn btn-primary" id="startTimerBtn" data-testid="button-timer">よし、2分だけやる</button>
+        <button class="btn btn-ghost" id="anotherConfessionBtn" data-testid="button-again">次の言い訳を告白する</button>
+      </div>
+    </section>
+
+    <section class="timer card" id="timerCard" hidden aria-labelledby="timerTitle" data-testid="card-timer">
+      <h2 class="card-title" id="timerTitle">二分間の修行</h2>
+      <p class="timer-remaining" id="timerDisplay" data-testid="text-timer">2:00</p>
+      <div class="timer-bar" aria-hidden="true"><div class="timer-bar-fill" id="timerBar"></div></div>
+      <p class="timer-note" id="timerNote">やる気は要りません。手を動かすだけです。仏が見ています。</p>
+      <div class="timer-actions">
+        <button class="btn btn-primary" id="finishTimerBtn" data-testid="button-finish">修行を完遂した</button>
+        <button class="btn btn-ghost" id="quitTimerBtn" data-testid="button-quit">やっぱりやめる（仏もたまには休む）</button>
+      </div>
+    </section>
+
+    <section class="extras">
+      <div class="card mokugyo-card">
+        <h2 class="card-title">木魚</h2>
+        <p class="card-note">ポク。押すたび、功徳が一つ積まれます。悩みがあったら、まず叩く。それが仏教（当寺調べ）。</p>
+        <button class="mokugyo" id="mokugyoBtn" data-testid="button-mokugyo" aria-label="木魚を叩く">
+          <svg viewBox="0 0 120 80" aria-hidden="true">
+            <ellipse cx="60" cy="48" rx="46" ry="24" fill="#8a5a2b"/>
+            <ellipse cx="60" cy="46" rx="46" ry="24" fill="#a06a33"/>
+            <ellipse cx="60" cy="46" rx="30" ry="14" fill="#241a10"/>
+            <rect x="52" y="6" width="5" height="18" rx="2.5" fill="#d9c9a8" transform="rotate(24 54 15)"/>
+            <rect x="63" y="4" width="5" height="18" rx="2.5" fill="#d9c9a8" transform="rotate(-20 65 13)"/>
+          </svg>
+          <span class="mokugyo-count" id="mokugyoCount" data-testid="text-mokugyo">ポク × 0</span>
+        </button>
+      </div>
+
+      <div class="card mantra-card">
+        <h2 class="card-title">今日の御詠歌</h2>
+        <blockquote class="mantra" id="mantraText" data-testid="text-mantra"></blockquote>
+        <button class="btn btn-ghost btn-small" id="mantraBtn" data-testid="button-mantra">もう一首いただく</button>
+      </div>
+    </section>
+
+    <section class="ranks card" aria-labelledby="ranksTitle">
+      <h2 class="card-title" id="ranksTitle">言い訳寺 段位表</h2>
+      <ol class="rank-list" role="list">
+        <li><span class="rank-name">童子</span><span class="rank-desc">言い訳の芽生え。誰しもここから。</span></li>
+        <li><span class="rank-name">沙弥</span><span class="rank-desc">言い訳が少し上手くなり、仏は嘆く。</span></li>
+        <li><span class="rank-name">行者</span><span class="rank-desc">言い訳で山を一つ越える。</span></li>
+        <li><span class="rank-name">和尚</span><span class="rank-desc">言い訳に説得力が伴い始める恐ろしい域。</span></li>
+        <li><span class="rank-name">座主</span><span class="rank-desc">言い訳で寺を一つ仕切れる。</span></li>
+        <li><span class="rank-name">大仏</span><span class="rank-desc">もはや言い訳は慈悲。ご自由に。</span></li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>言い訳寺 〜 足利の大仏・言い訳受理課 〜</p>
+    <p class="footer-note">本アプリは足利大仏様（栃木県足利市・大昌山館林寺）の公式ではありません。仏の裁きはフィクションです。功徳は保証の対象外です。</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
