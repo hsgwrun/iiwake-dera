@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>言い訳寺 ｜ 足利の大仏が、あなたの言い訳をお聴きになる</title>
-  <meta name="description" content="言い訳を告白すると、足利の大仏が優しくも辛口に裁いてくれるアプリ。2分だけの修行タイマー、木魚、功徳ポイント付き。" />
+  <title>言い訳寺 ｜ 大仏が、あなたの言い訳をお聴きになる</title>
+  <meta name="description" content="言い訳を告白すると、大仏が優しくも辛口に裁いてくれるアプリ。2分だけの修行タイマー、木魚、功徳ポイント付き。" />
   <meta property="og:title" content="言い訳寺" />
   <meta property="og:description" content="言い訳を告白すると、大仏が裁きます。やる気は要求されません。2分だけです。" />
   <meta property="og:type" content="website" />
@@ -22,7 +22,7 @@
       <span class="brand-kanji" aria-hidden="true">言</span>
       <div>
         <h1 class="brand-title">言い訳寺</h1>
-        <p class="brand-sub">あしかが大仏・言い訳受理課</p>
+        <p class="brand-sub">大仏・言い訳受理課（山の上）</p>
       </div>
     </div>
     <div class="karma-chip" role="status" aria-live="polite" data-testid="karma-chip">
@@ -80,7 +80,7 @@
 
     <section class="confession card" aria-labelledby="confessionTitle">
       <h2 class="card-title" id="confessionTitle">告白の間</h2>
-      <p class="card-note">ここに書いたことは、山を越えて誰にも届きません。仏だけが知っています。</p>
+      <p class="card-note">ここに書いたことは、山を越えて誰にも届きません。仏だけが知っています。（Ctrl+Enterでも告白できます）</p>
       <label class="sr-only" for="excuseInput">言い訳を書く</label>
       <textarea id="excuseInput" data-testid="input-excuse" rows="4" maxlength="300"
         placeholder="例）レポートは明日から本気を出すつもりだった。しかし昨夜、猫が膝に来たので断念した。"></textarea>
@@ -109,6 +109,7 @@
       <p class="timer-note" id="timerNote">やる気は要りません。手を動かすだけです。仏が見ています。</p>
       <div class="timer-actions">
         <button class="btn btn-primary" id="finishTimerBtn" data-testid="button-finish">修行を完遂した</button>
+        <button class="btn btn-ghost" id="extendTimerBtn" data-testid="button-extend">調子に乗って、もう2分だけやる</button>
         <button class="btn btn-ghost" id="quitTimerBtn" data-testid="button-quit">やっぱりやめる（仏もたまには休む）</button>
       </div>
     </section>
@@ -132,7 +133,7 @@
       <div class="card mantra-card">
         <h2 class="card-title">今日の御詠歌</h2>
         <blockquote class="mantra" id="mantraText" data-testid="text-mantra"></blockquote>
-        <button class="btn btn-ghost btn-small" id="mantraBtn" data-testid="button-mantra">もう一首いただく</button>
+        <button class="btn btn-ghost btn-small" id="mantraBtn" data-testid="button-mantra">もう一首いただく（仏の引き出しは無限である）</button>
       </div>
     </section>
 
@@ -150,8 +151,8 @@
   </main>
 
   <footer class="site-footer">
-    <p>言い訳寺 〜 足利の大仏・言い訳受理課 〜</p>
-    <p class="footer-note">本アプリは足利大仏様（栃木県足利市・大昌山館林寺）の公式ではありません。仏の裁きはフィクションです。功徳は保証の対象外です。</p>
+    <p>言い訳寺 〜 大仏・言い訳受理課（所在地非公開・山の上） 〜</p>
+    <p class="footer-note">本アプリは特定の寺院・大仏様の公式ではありません。仏の裁きはフィクションです。功徳は保証の対象外です。</p>
   </footer>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
