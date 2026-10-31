@@ -5,15 +5,9 @@
 (function () {
   'use strict';
 
-  /* ---------- 安全なストレージ（サンドボックス内では黙って諦める） ---------- */
-  var store = {
-    get: function (key) {
-      try { return window.localStorage.getItem(key); } catch (e) { return null; }
-    },
-    set: function (key, value) {
-      try { window.localStorage.setItem(key, value); } catch (e) { /* 諸行無常 */ }
-    }
-  };
+  /* ---------- 仏の記憶（メモリ） ----------
+     功徳はどこにも保存しない。ブラウザを閉じれば仏も忘れる。
+     それでいいのだ。諸行無常である。 */
 
   /* ---------- 功徳システム ---------- */
   var RANKS = [
@@ -26,8 +20,8 @@
   ];
 
   var state = {
-    karma: parseInt(store.get('iiwake_karma') || '0', 10) || 0,
-    mokugyo: parseInt(store.get('iiwake_mokugyo') || '0', 10) || 0,
+    karma: 0,
+    mokugyo: 0,
     timerId: null,
     timerRunning: false,
     timerElapsed: 0
@@ -35,7 +29,6 @@
 
   function addKarma(points) {
     state.karma += points;
-    store.set('iiwake_karma', String(state.karma));
     renderKarma();
   }
 
@@ -401,7 +394,6 @@
   /* ---------- 木魚 ---------- */
   function onMokugyo() {
     state.mokugyo += 1;
-    store.set('iiwake_mokugyo', String(state.mokugyo));
     $('mokugyoCount').textContent = 'ポク × ' + state.mokugyo;
     playPoku();
     if (state.mokugyo % 33 === 0) {
